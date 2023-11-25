@@ -37,10 +37,10 @@ class DatabaseSeeder extends Seeder
             'kategori' => 'Accesories'
         ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'admin',
-        //     'email' => 'admin@gmail.com',
-        //     'password' => Hash::make('admin123'),
-        // ]);
+        \App\Models\User::factory()->create([
+            'name' => 'admin',
+            'email' => 'admin@gmail.com',
+            'password' => Hash::make('admin123'),
+        ]);
     }
 }
