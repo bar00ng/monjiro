@@ -59,11 +59,27 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $product->nama }}</td>
-                                                <td>{{ $product->warna }}</td>
+                                                <td>
+                                                    <ul>
+                                                        @foreach ($product->warna as $warna)
+                                                            <li>
+                                                                {{ $warna }}
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </td>
                                                 <td>{{ $product->kategori }}</td>
-                                                <td> {{ $product->ukuran }}</td>
+                                                <td>
+                                                    <ul>
+                                                        @foreach ($product->ukuran as $ukuran)
+                                                            <li>
+                                                                {{ $ukuran }}
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </td>
                                                 <td>Rp. {{ number_format($product->harga, 0) }}</td>
-                                                <td><img src="{{ Storage::url('/foto_barang/' . $product->fotobaju_satu) }}" alt="Foto Baju Satu" style="max-width: 100px;max-height: 100px;"></td>
+                                                <td><img src="{{ Storage::url('foto_baju/' . $product->fotobaju_satu) }}" alt="Foto Baju Satu" style="max-width: 100px;max-height: 100px;"></td>
                                                 <td>{{ $product->note }}</td>
                                                 <td>
                                                     <form class="d-inline" action="{{ route('admin.product.edit', ['product' => $product])}}"

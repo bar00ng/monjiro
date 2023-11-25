@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="/assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/assets/dist/css/adminlte.min.css">
+    @livewireStyles
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -52,7 +53,7 @@
     <!-- ./wrapper -->
 
     <!-- REQUIRED SCRIPTS -->
-
+    @livewireScripts
     <!-- jQuery -->
     <script src="/assets/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->

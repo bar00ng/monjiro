@@ -10,9 +10,19 @@ Route::get('/', function () {
     $products = \App\Models\Product::orderBy('created_at', 'desc')->take(4)->get();
 
     return view('index', [
-        'products' => $products
+        'products' => $products,
+        'title' => 'Landing Page'
     ]);
-});
+})->name('landing-page');
+
+Route::prefix('guest')
+    ->name('guest.')
+    ->group(function () {
+        Route::resource('/product', \App\Http\Controllers\ProductController::class)
+            ->only('show');
+        Route::get('/products/{category?}', \App\Livewire\Product\ListProduct::class)
+            ->name('product.index');
+    });
 
 
 /*

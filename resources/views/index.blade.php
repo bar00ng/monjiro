@@ -1,25 +1,42 @@
 @extends('layout.app')
 
 @section('content')
-<x-hero />
+    <x-hero />
 
-<div class="p-5 md:p-20">
-    <h1 class="text-2xl font-bold text-center mb-10">
-        NEWW
-    </h1>
+    <section>
+        <div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
+            <header class="text-center">
+                <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">
+                    New Products
+                </h2>
+                @if ($products->isEmpty())
+                    <p class="max-w-full mt-4 text-gray-500">
+                        Nothing to show yet
+                    </p>
+                @endif
+            </header>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
-        @foreach ($products as $product)
-            <a href="{{ url('/produk/' . $barang->id . '/detail') }}">
-                <x-card :cardImage="$barang->fotobaju_satu" :cardTitle="$barang->nama" :cardSubTitle="$barang->harga" />
-            </a>
-        @endforeach
-    </div>
+            <ul class="grid gap-4 mt-8 grid-cols-2 lg:grid-cols-4">
+                @foreach ($products as $product)
+                    <li>
+                        <x-card :product="$product" />
+                    </li>
+                @endforeach
+            </ul>
 
-    <div class="text-center mb-10">
-        <button class="bg-black uppercase text-white px-5 py-2 mt-6">See More</button>
-    </div>
+            <div class="mt-8 text-center ">
+                <a class="group relative inline-block text-sm font-medium text-black focus:outline-none focus:ring active:text-black"
+                    href="{{ route('guest.product.index') }}">
+                    <span
+                        class="absolute inset-0 translate-x-0 translate-y-0 bg-black transition-transform group-hover:translate-y-0.5 group-hover:translate-x-0.5"></span>
 
-    <!-- TODO About Us Section -->
-</div>
+                    <span class="relative block border border-current bg-white px-8 py-3">
+                        See More
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <x-guest.about-us />
 @endsection

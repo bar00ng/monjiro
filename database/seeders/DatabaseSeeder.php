@@ -13,12 +13,34 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        \App\Models\User::factory()->create([
-            'name' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => Hash::make('admin123'),
+        \App\Models\Product::factory(20)->create([
+            'kategori' => 'T-Shirt'
         ]);
+
+        \App\Models\Product::factory(20)->create([
+            'kategori' => 'Shirt'
+        ]);
+
+        \App\Models\Product::factory(20)->create([
+            'kategori' => 'Sweather'
+        ]);
+
+        \App\Models\Product::factory(20)->create([
+            'kategori' => 'Jacket'
+        ]);
+
+        \App\Models\Product::factory(20)->create([
+            'kategori' => 'Pants'
+        ]);
+
+        \App\Models\Product::factory(20)->create([
+            'kategori' => 'Accesories'
+        ]);
+
+        // \App\Models\User::factory()->create([
+        //     'name' => 'admin',
+        //     'email' => 'admin@gmail.com',
+        //     'password' => Hash::make('admin123'),
+        // ]);
     }
 }

@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('link_shop', 100);
             $table->string('harga', 50);
             $table->string('kategori', 50);
-            $table->string('fotobaju_satu');
-            $table->string('fotobaju_dua');
-            $table->string('fotobaju_tiga');
+            $table->string('fotobaju_satu')->nullable();
+            $table->string('fotobaju_dua')->nullable();
+            $table->string('fotobaju_tiga')->nullable();
             $table->text('note');
             $table->timestamps();
         });

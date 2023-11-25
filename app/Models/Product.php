@@ -9,6 +9,12 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $attributes = [
+        'fotobaju_satu' => 'null',
+        'fotobaju_dua' => 'null',
+        'fotobaju_tiga' => 'null'
+    ];
+
     protected $fillable = [
         'nama',
         'warna',
@@ -20,5 +26,9 @@ class Product extends Model
         'fotobaju_satu',
         'fotobaju_dua',
         'fotobaju_tiga'
+    ];
+    protected $casts = [
+        'ukuran' => 'array',
+        'warna' => 'array'
     ];
 }
